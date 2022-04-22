@@ -11,8 +11,8 @@ import pytest
 __version__ = "1.0.3"
 
 DEFAULT_PATH = "test-output.xml"
-DEFAULT_COVERAGE_PATH = "coverage.xml"
-
+DEFAULT_COVERAGE_PATH = "coverage/coverage.xml"
+DEFAULT_HTML_COVERAGE_PATH= "coverage/htmlcov"
 
 def pytest_addoption(parser):
     group = parser.getgroup("pytest_azurepipelines")
@@ -156,7 +156,7 @@ def pytest_sessionfinish(session, exitstatus):
         covpath = os.path.normpath(
             os.path.abspath(os.path.expanduser(os.path.expandvars(DEFAULT_COVERAGE_PATH)))
         )
-        reportdir = os.path.normpath(os.path.abspath("htmlcov"))
+        reportdir = os.path.normpath(os.path.abspath(DEFAULT_HTML_COVERAGE_PATH))
         if os.path.exists(covpath):
             if mountinfo:
                 covpath = apply_docker_mappings(mountinfo, covpath)
