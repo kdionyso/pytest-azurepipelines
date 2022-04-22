@@ -12,7 +12,7 @@ __version__ = "1.0.3"
 
 DEFAULT_PATH = "test-output.xml"
 DEFAULT_COVERAGE_PATH = "coverage/coverage.xml"
-DEFAULT_HTML_COVERAGE_PATH= "coverage/htmlcov"
+DEFAULT_HTML_COVERAGE_PATH= "htmlcov"
 
 def pytest_addoption(parser):
     group = parser.getgroup("pytest_azurepipelines")
